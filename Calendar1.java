@@ -3,12 +3,12 @@
  */
 public class Calendar1 {	
     // Starting the calendar on 1/1/1900                                                        //already gave us the info that 1/1/1900 was a Monday and the number of days in that month
-	static int dayOfMonth = 1;   
+	static int dayOfMonth = 1;  
+   static int sundaysCounter = 0;	
 	static int month = 1;
 	static int year = 1900;
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int nDaysInMonth = 31; // Number of days in January
-	
 	/** 
 	 * Prints the calendars of all the years in the 20th century. Also prints the  
 	 * number of Sundays that occured on the first day of the month during this period.
@@ -31,7 +31,7 @@ public class Calendar1 {
 	 		}
         }
 	 	//// Write the necessary ending code here
-		System.out.println ("During the 20th century, 172 Sundays fell on the first day of the month" + debugDaysCounter)
+		System.out.println ("During the 20th century, " + sundaysCounter +" Sundays fell on the first day of the month");
 	 }
 	
 	 // Advances the date (day, month, year) and the day-of-the-week.
@@ -50,12 +50,13 @@ public class Calendar1 {
 			 }
 			 nDaysInMonth = nDaysInMonth(month, year);
 		 }
-
 		 System.out.print(dayOfMonth + "/");
 		 System.out.print(month + "/");
 		 System.out.print(year);
 		 if (dayOfWeek == 1 && dayOfMonth == 1) {
 			 System.out.println(" Sunday");
+			 		sundaysCounter++;
+
 		 } else {
 			 System.out.println();
 		 }
