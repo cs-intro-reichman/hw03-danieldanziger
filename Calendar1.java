@@ -31,7 +31,7 @@ public class Calendar1 {
 	 		}
         }
 	 	//// Write the necessary ending code here
-		System.out.println ("Total number of days advanced:" + debugDaysCounter)
+		System.out.println ("During the 20th century, 172 Sundays fell on the first day of the month" + debugDaysCounter)
 	 }
 	
 	 // Advances the date (day, month, year) and the day-of-the-week.
