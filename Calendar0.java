@@ -26,7 +26,7 @@ public class Calendar0 {
 	
 			for (int month = 1; month <= 12; month++){                                                            //need to print all 12 month
 			int daysInMonth = nDaysInMonth(month, year);                                                                //sends it to the function nDaysInMonth
-			System.out.println("Number of days in month " + month + "of year " + year + ": " + daysInMonth);
+			System.out.println("Month " + month + " has " + daysInMonth + " days");
 			}
 	}
 
@@ -34,7 +34,7 @@ public class Calendar0 {
 	public static boolean isLeapYear(int year) {                                           //input year returns boolean true or false (if its a leap year)
 	    // Replace the following statement with your code
 		
-		if ((year%4==0 && year%100!=0) || year%400==0){                  //how to test if a year is a leap year
+		if ((year%4==0 && year%100!=0) || year%400==0){                  //how to test if a year is a leap year (why || and not another &&?)
 		  return true;
 		}
 		else{

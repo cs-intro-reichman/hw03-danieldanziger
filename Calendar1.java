@@ -31,7 +31,7 @@ public class Calendar1 {
 	 		}
         }
 	 	//// Write the necessary ending code here
-		System.out.println ("Total number of days advanced:" + debugDaysCounter);
+		System.out.println ("Total number of days advanced:" + debugDaysCounter)
 	 }
 	
 	 // Advances the date (day, month, year) and the day-of-the-week.

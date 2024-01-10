@@ -63,7 +63,8 @@ public class LoanCalc {
 	double lo = 0;
         double hi = loan / n * n; // Initial values for bisection
         double guess = (lo + hi) / 2;
-
+		iterationCounter = 0;
+		
         while ((hi - lo) > epsilon) {
             if (endBalance(loan, rate, n, guess) * endBalance(loan, rate, n, lo) > 0) {
                 lo = guess;

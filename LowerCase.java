@@ -14,8 +14,8 @@ public class LowerCase {
         // Replace the following statement with your code
 		String lowercase = "";
 		
-		for(int i = 0;  i < s.length(); i++){  
-			char currentChar = s.charAt(i);                                         
+		for(int i = 0;  i < s.length(); i++){                                           //runs on the letters in the string
+			char currentChar = s.charAt(i);                                             //currentChar is the string we get and run on while lowercase is the string we want to save it as new
 			if (currentChar >= 'A' && currentChar <= 'Z'){
 			 lowercase = lowercase + (char) (currentChar + ('a' - 'A'));                // can also write '32' intead of 'a'-'A'
 		 }
