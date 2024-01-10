@@ -13,9 +13,9 @@ public class LoanCalc {
      */
 	public static void main(String[] args) {		
 		// Gets the loan data
-		double loan = Double.parseDouble(args[0]);
-		double rate = Double.parseDouble(args[1]);
-		int n = Integer.parseInt(args[2]);
+		double loan = 100000;
+        double rate = 5;
+        int n = 10;
 		System.out.println("Loan sum = " + loan + ", interest rate = " + rate + "%, periods = " + n);
 		
 		// Computes the periodical payment using brute force search
@@ -40,8 +40,16 @@ public class LoanCalc {
 	// Side effect: modifies the class variable iterationCounter.
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {  
     	// Replace the following statement with your code
-    	return 0;
+        double guess = loan / n; // Initial guess
+
+        while (endBalance(loan, rate, n, guess) > 0) {
+            guess += epsilon;
+            iterationCounter++;
+        }
+
+        return guess;
     }
+
     
     /**
 	* Uses bisection search to compute an approximation of the periodical payment 
@@ -52,8 +60,24 @@ public class LoanCalc {
 	// Side effect: modifies the class variable iterationCounter.
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
     	// Replace the following statement with your code
-    	return 0;
+	double lo = 0;
+        double hi = loan / n * n; // Initial values for bisection
+        double guess = (lo + hi) / 2;
+
+        while ((hi - lo) > epsilon) {
+            if (endBalance(loan, rate, n, guess) * endBalance(loan, rate, n, lo) > 0) {
+                lo = guess;
+            } else {
+                hi = guess;
+            }
+
+            guess = (lo + hi) / 2;
+            iterationCounter++;
+        }
+
+        return guess;
     }
+
 	
 	/**
 	* Computes the ending balance of a loan, given the sum of the loan, the periodical
@@ -61,6 +85,9 @@ public class LoanCalc {
 	*/
 	private static double endBalance(double loan, double rate, int n, double payment) {
 		// Replace the following statement with your code
-    	return 0;
-	}
+	for (int i = 0; i < n; i++) {
+            loan = (loan - payment) * (1 + rate / 100);
+        }
+        return loan;
+    }
 }

@@ -12,6 +12,22 @@ public class UniqueChars {
      */
     public static String uniqueChars(String s) {
         // Replace the following statement with your code
-        return null;
+		
+		String unique = "";
+		
+		for(int i = 0;  i < s.length(); i++){  
+			char currentChar = s.charAt(i);   
+			if (currentChar != ' '){                                                 //if the currentChar is not a space (since a space can be more than once
+				if (unique.indexOf(currentChar) == -1){                              //if it is -1 its not in the new string (unique) and we want to add it. if its any other number it will not add it to the unique
+					unique = unique + currentChar;                                   //add it
+				}
+			}
+		else{
+			unique = unique + currentChar;                                           //if its not a space add it
+
+			}
+		}
+		
+        return unique;
     }
 }
