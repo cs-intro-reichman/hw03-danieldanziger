@@ -1,5 +1,4 @@
-{
-    "tests": [
+ "tests": [
     {
     "name": "LowerCase test 1",
     "setup": "javac LowerCase.java",
