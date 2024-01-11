@@ -8,22 +8,25 @@ public class Calendar {
 	static int year = 1900;
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int nDaysInMonth = 31; // Number of days in January
-	
+
 	
 	public static void main(String args[]) {
 		int givenYear = Integer.parseInt(args[0]);
-	    int debugDaysCounter = 0; 
-	
+	    while (dayOfMonth != 31 || month != 12 || year != givenYear - 1) {
+	    	advance();
+		}
  
-		while (year<=givenYear) {
+		advance();
+	 	while (dayOfMonth != 31 || month != 12 || year != givenYear) {
+	 		if (dayOfWeek == 1) 
+	 			System.out.println(dayOfMonth + "/" + month + "/" + year + " Sunday");	
+	 		else 
+	 			System.out.println(dayOfMonth + "/" + month + "/" + year);
 	 		advance();
-	 		debugDaysCounter++;
-	 		
-	 		if (month == 12 && dayOfMonth == 31 && year==givenYear) { 
-	 			break;
-	 		}
         }
-	 }
+        System.out.println("31/12/" + givenYear);
+        }
+	 
 	
 	 
 	 private static void advance() {                                   
@@ -36,23 +39,21 @@ public class Calendar {
 				 year++;
 				 month = 1;
 			 }
+
 			 nDaysInMonth = nDaysInMonth(month, year);
 		 }
-
-		 System.out.print(dayOfMonth + "/");
-		 System.out.print(month + "/");
-		 System.out.print(year);
-		 if (dayOfWeek == 1 && dayOfMonth == 1) {
-			 System.out.println(" Sunday");
-		 } else {
-			 System.out.println();
-		 }
-
 	 }
 		
 		 
-	private static boolean isLeapYear(int year) {
+	public static boolean isLeapYear(int year) {                                           //input year returns boolean true or false (if its a leap year)
+	    // Replace the following statement with your code
+		
+		if ((year%4==0 && year%100!=0) || year%400==0){                  //how to test if a year is a leap year (why || and not another &&?)
+		  return true;
+		}
+		else{
 		return false;
+		}
 	}
 	 
 	private static int nDaysInMonth(int month, int year) {
