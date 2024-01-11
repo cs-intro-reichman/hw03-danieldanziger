@@ -4,6 +4,7 @@
 public class LoanCalc {
 	
 	static double epsilon = 0.001;  // The computation tolerance (estimation error)
+	static double increment = 0.001;
 	static int iterationCounter;    // Monitors the efficiency of the calculation
 	
     /** 
@@ -13,9 +14,9 @@ public class LoanCalc {
      */
 	public static void main(String[] args) {		
 		// Gets the loan data
-		double loan = 100000;
-        double rate = 5;
-        int n = 10;
+		double loan = Double.parseDouble(args[0]);
+        double rate = Double.parseDouble(args[1]);
+        int n = Integer.parseInt(args[2]);
 		System.out.println("Loan sum = " + loan + ", interest rate = " + rate + "%, periods = " + n);
 		
 		// Computes the periodical payment using brute force search
@@ -42,8 +43,8 @@ public class LoanCalc {
     	// Replace the following statement with your code
         double guess = loan / n; // Initial guess
 
-        while (endBalance(loan, rate, n, guess) > 0) {
-            guess += epsilon;
+        while (endBalance(loan, rate, n, guess) > epsilon) {
+            guess += increment;
             iterationCounter++;
         }
 
